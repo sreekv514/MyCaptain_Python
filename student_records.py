@@ -45,11 +45,12 @@ if __name__ == '__main__':
   filename = filename + ".csv"
   count = file_check(filename)
   condition = True
-  # 1. Entering or asking user to enter Student information.
+  
   while(condition):
     count += 1
+    # 1. User is requested to enter student details.
     student_info = input("Enter details for student no.{} in the given format - \n\t Name, Age, Contact_number, Email_ID: ".format(count))
-    # 2. Pre-processing the collected data. ie. Converting the data into a list that can be written into a CSV file.
+    # 2. Pre-processing the collected data into a list that can be written into a CSV file.
     student_info_list = [count, ] + student_info.split(", ")
     print("The following information will be written to file: ")
     print("\t Name: ", student_info_list[1])
@@ -62,7 +63,7 @@ if __name__ == '__main__':
     while(choice):
       confirm = input("Proceed to write student information to file? Y/N: ")
       if confirm == 'y' or confirm == 'Y':
-        # 3. Writing all the pre-processed data into a File.
+        # 3. Writing all the pre-processed data into the specified file.
         file_write(student_info_list, filename)
         choice = False
       elif confirm == 'n' or confirm == 'N':
